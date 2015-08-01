@@ -42,3 +42,11 @@ class TestCombat(TestCase):
     def test_attacker_misses_when_roll_less_than_armor_class(self):
         self.subject.resolve(5)
         self.assertFalse(self.subject.hit)
+
+    def test_attacker_hits_when_roll_equals_armor_class(self):
+        self.subject.resolve(10)
+        self.assertTrue(self.subject.hit)
+
+    def test_attacker_hits_when_roll_greater_than_armor_class(self):
+        self.subject.resolve(15)
+        self.assertTrue(self.subject.hit)

@@ -18,7 +18,7 @@ class Character():
 class Combat():
 
     def __init__(self, attacker, defender):
-        pass
+        self.defender = defender
 
     def resolve(self, roll):
-        self.hit = False
+        self.hit = roll >= self.defender.armor_class
