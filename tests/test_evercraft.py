@@ -24,3 +24,9 @@ class TestCharacter(TestCase):
     def test_alignment_can_be_changed_to_evil(self):
         self.subject.alignment = Alignment.EVIL
         self.assertEqual(self.subject.alignment, Alignment.EVIL)
+
+    def test_armor_class_has_expected_default(self):
+        self.assertEqual(self.subject.armor_class, 10)
+
+    def test_hit_points_has_expected_default(self):
+        self.assertEqual(self.subject.hit_points, 5)
