@@ -32,6 +32,17 @@ class TestCharacter(TestCase):
     def test_hit_points_has_expected_default(self):
         self.assertEqual(self.subject.hit_points, 5)
 
+    def test_is_alive_when_undamaged(self):
+        self.assertTrue(self.subject.alive)
+
+    def test_is_alive_when_damaged(self):
+        self.subject.damage(3)
+        self.assertTrue(self.subject.alive)
+
+    def test_is_dead_when_out_of_hit_points(self):
+        self.subject.damage(5)
+        self.assertFalse(self.subject.alive)
+
 class TestCombat(TestCase):
 
     def setUp(self):

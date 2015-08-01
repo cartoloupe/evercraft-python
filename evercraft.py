@@ -16,6 +16,10 @@ class Character():
     def hit_points(self):
         return 5 - self._damage
 
+    @property
+    def alive(self):
+        return self.hit_points > 0
+
     def damage(self, points):
         self._damage = self._damage + points
 
