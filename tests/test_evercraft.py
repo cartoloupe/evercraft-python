@@ -1,6 +1,7 @@
 from unittest import TestCase
 from evercraft import Character
 from evercraft import Alignment
+from evercraft import Combat
 
 class TestCharacter(TestCase):
 
@@ -30,3 +31,14 @@ class TestCharacter(TestCase):
 
     def test_hit_points_has_expected_default(self):
         self.assertEqual(self.subject.hit_points, 5)
+
+class TestCombat(TestCase):
+
+    def setUp(self):
+        self.attacker = Character()
+        self.defender = Character()
+        self.subject = Combat(self.attacker, self.defender)
+
+    def test_attacker_misses_when_roll_less_than_armor_class(self):
+        self.subject.resolve(5)
+        self.assertFalse(self.subject.hit)

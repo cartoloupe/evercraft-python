@@ -14,3 +14,11 @@ class Character():
     @property
     def hit_points(self):
         return 5
+
+class Combat():
+
+    def __init__(self, attacker, defender):
+        pass
+
+    def resolve(self, roll):
+        self.hit = False
